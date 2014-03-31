@@ -1,392 +1,145 @@
-<!DOCTYPE html>
-<html lang="en" class="app">
-<head>
-    <meta charset="utf-8" />
-    <title>Conversionomics</title>
-    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/font.css" type="text/css" />
-    <link rel="stylesheet" href="js/calendar/bootstrap_calendar.css" type="text/css" />
-    <link rel="stylesheet" href="css/app.css" type="text/css" />
-    <!--[if lt IE 9]>
-    <script src="js/ie/html5shiv.js"></script>
-    <script src="js/ie/respond.min.js"></script>
-    <script src="js/ie/excanvas.js"></script>
-  <![endif]-->
-</head>
-<body>
-    <section class="vbox">
-        <header class="bg-dark dk header navbar navbar-fixed-top-xs">
-            <div class="navbar-header aside-md">
-                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <a href="index.html" class="navbar-brand">Conversionomics</a>
-                <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
-                    <i class="fa fa-cog"></i>
-                </a>
+<ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+    <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
+    <li>Client</li>
+    <li class="active">Google Analytics</li>
+</ul>
+<div class="m-b-md">
+    <h3 class="m-b-none">Google Analytics</h3>
+    <small></small>
+</div>
+
+<div class="row">
+
+    <div class="col-sm-6">
+        <section class="panel panel-default">
+            <header class="panel-heading font-bold">Set Your Search Criteria</header>
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label>Dimensions</label>
+                        <input type="text" class="form-control" placeholder="">
+                        <small>Dimensions help "slice" data and are optional.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Metrics</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </form>
             </div>
-            <ul class="nav navbar-nav hidden-xs">
-                <li class="dropdown">
-                    <a href="clients.html" class="dropdown-toggle dker">
-                        <span class="font-bold">Grant's New Client</span>
-                    </a>
-                    <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
-                        <div class="wrapper lter m-t-n-xs">
-                            <a href="#" class="thumb pull-left m-r">
-                                <img src="images/avatar_default.jpg" class="img-circle">
-                            </a>
-                            <div class="clear">
-                                <a href="#"><span class="text-white font-bold">@Mike Mcalidek</a></span>
-               
-                                <small class="block">Art Director</small>
-                                <a href="#" class="btn btn-xs btn-success m-t-xs">Upgrade</a>
-                            </div>
-                        </div>
-                        <div class="row m-l-none m-r-none m-b-n-xs text-center">
-                            <div class="col-xs-4">
-                                <div class="padder-v">
-                                    <span class="m-b-xs h4 block text-white">245</span>
-                                    <small class="text-muted">Followers</small>
-                                </div>
-                            </div>
-                            <div class="col-xs-4 dk">
-                                <div class="padder-v">
-                                    <span class="m-b-xs h4 block text-white">55</span>
-                                    <small class="text-muted">Likes</small>
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="padder-v">
-                                    <span class="m-b-xs h4 block text-white">2,035</span>
-                                    <small class="text-muted">Photos</small>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="thumb-sm avatar pull-left">
-                            <img src="images/avatar_default.jpg">
-                        </span>
-                        Administrator <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu animated fadeInRight">
-                        <span class="arrow top"></span>
-                        <li>
-                            <a href="#">Manague Users</a>
-                        </li>
-                        <li>
-                            <a href="#">Manage Providers</a>
-                        </li>
-                        <li>
-                            <a href="#">Manage Clients</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">Registrer GDrive</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">Logout</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </header>
-        <section>
-            <section class="hbox stretch">
-                <!-- .aside -->
-                <aside class="bg-dark lter aside-md hidden-print" id="nav">
-                    <section class="vbox">
-                        <header class="header bg-primary lter text-center clearfix">
-                            <div class="btn-group" onclick="window.location='index.html'">
-                                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-mail-reply"></i></button>
-                                <div class="btn-group hidden-nav-xs">
-                                    <button href="clients.html" type="button" title="Return to dashboard" class="btn btn-sm btn-primary dropdown-toggle">
-                                        Return to dashboard                 
-                                    </button>
-                                </div>
-                            </div>
-                        </header>
-                        <section class="w-f scrollable">
-                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
-
-                                <!-- nav -->
-                                <nav class="nav-primary hidden-xs">
-                                    <ul class="nav">
-                                        <li class="active">
-                                            <a href="index.html" class="active">
-                                                <i class="fa fa-bar-chart-o icon">
-                                                    <b class="bg-danger"></b>
-                                                </i>
-                                                <span>Google Analytics</span>
-                                            </a>
-                                            <ul class="nav lt">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-save"></i>
-                                                        <span>View</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-times-circle-o"></i>
-                                                        <span>Save Query</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-times-circle-o"></i>
-                                                        <span>Export to CSV</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-times-circle-o"></i>
-                                                        <span>Stop Query</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="google_adwords.html">
-                                                <i class="fa fa-user-md icon">
-                                                    <b class="bg-warning"></b>
-                                                </i>
-                                                <span>Google Adwords</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="bing.html">
-                                                <i class="fa fa-flash icon">
-                                                    <b class="bg-success"></b>
-                                                </i>
-                                                <span>Bing</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="queries.html">
-                                                <i class="fa fa-flash icon">
-                                                    <b class="bg-info"></b>
-                                                </i>
-                                                <span>Query Exports</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                                <!-- / nav -->
-                            </div>
-                        </section>
-
-                        <footer class="footer lt hidden-xs b-t b-dark">
-
-                            <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
-                                <i class="fa fa-angle-left text"></i>
-                                <i class="fa fa-angle-right text-active"></i>
-                            </a>
-
-                        </footer>
-                    </section>
-                </aside>
-                <!-- /.aside -->
-                <section id="content">
-                    <section class="vbox">
-                        <section class="scrollable padder">
-                            <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-                                <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
-                                <li>Client</li>
-                                <li class="active">Google Analytics</li>
-                            </ul>
-                            <div class="m-b-md">
-                                <h3 class="m-b-none">Google Analytics</h3>
-                                <small></small>
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col-sm-6">
-                                    <section class="panel panel-default">
-                                        <header class="panel-heading font-bold">Set Your Search Criteria</header>
-                                        <div class="panel-body">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <label>Dimensions</label>
-                                                    <input type="text" class="form-control" placeholder="">
-                                                    <small>Dimensions help "slice" data and are optional.</small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Metrics</label>
-                                                    <input type="text" class="form-control" placeholder="">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </section>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <section class="panel panel-default">
-                                        <header class="panel-heading font-bold">Set Your Date Range</header>
-                                        <div class="panel-body">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <label>From</label>
-                                                    <div>
-                                                        <input type="text" class="combodate form-control" data-format="DD-MM-YYYY" data-template="D  MMM  YYYY" name="datetime" value="21-12-2012">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>To</label>
-                                                    <div>
-                                                        <input type="text" class="combodate form-control" data-format="DD-MM-YYYY" data-template="D  MMM  YYYY" name="datetime" value="21-12-2012">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </section>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <section class="panel panel-default">
-                                        <header class="panel-heading font-bold">Filters</header>
-                                        <div class="panel-body">
-                                            <form role="form">
-                                                <div class="form-group col-sm-6">
-                                                    <label>Filter on</label>
-                                                    <select name="account" class="form-control m-b">
-                                                        <option>option 1</option>
-                                                        <option>option 2</option>
-                                                        <option>option 3</option>
-                                                        <option>option 4</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-sm-6">
-                                                    <label>Filter Operator</label>
-                                                    <select name="account" class="form-control m-b">
-                                                        <option>option 1</option>
-                                                        <option>option 2</option>
-                                                        <option>option 3</option>
-                                                        <option>option 4</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-sm-6">
-                                                    <label>Filter value</label>
-                                                    <input type="text" class="form-control" placeholder="" />
-                                                </div>
-                                                <div class="form-group col-sm-6">
-                                                    <label>Filter Condition</label>
-                                                    <select name="account" class="form-control m-b">
-                                                        <option>option 1</option>
-                                                        <option>option 2</option>
-                                                        <option>option 3</option>
-                                                        <option>option 4</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-sm-3">
-                                                    <label>Add one or more filters</label>
-                                                    <input type="button" class="form-control" value="Add filter">
-                                                </div>
-                                                <div class="form-group col-sm-12">
-                                                    <label>Filters</label>
-                                                    <textarea class="form-control"></textarea>
-                                                    <small>Filters return a subset of the data retrieved and are optional.</small>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </section>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <section class="panel panel-default">
-                                        <header class="panel-heading font-bold">Sorts</header>
-                                        <div class="panel-body">
-                                            <form role="form">
-                                                <div class="form-group col-sm-6">
-                                                    <label>Sort on</label>
-                                                    <select name="account" class="form-control m-b">
-                                                        <option>option 1</option>
-                                                        <option>option 2</option>
-                                                        <option>option 3</option>
-                                                        <option>option 4</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-sm-6">
-                                                    <label>Sort Direction</label>
-                                                    <select name="account" class="form-control m-b">
-                                                        <option>option 1</option>
-                                                        <option>option 2</option>
-                                                        <option>option 3</option>
-                                                        <option>option 4</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-sm-3">
-                                                    <label>Add one or more sorts</label>
-                                                    <input type="button" class="form-control" value="Add sort">
-                                                </div>
-                                                <div class="form-group col-sm-12">
-                                                    <label>Sort</label>
-                                                    <textarea class="form-control"></textarea>
-                                                    <small>The order and direction to retrieve the results and are optional.</small>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </section>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-8">
-                                </div>
-                                <div class="col-md-4">
-                                    <section class="panel b-light" style="visibility: hidden">
-
-                                        <div id="calendar" class="bg-primary m-l-n-xxs m-r-n-xxs" style="visibility: hidden"></div>
-
-                                    </section>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </section>
-                    </section>
-                    <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
-                </section>
-                <aside class="bg-light lter b-l aside-md hide" id="notes">
-                    <div class="wrapper">Notification</div>
-                </aside>
-            </section>
         </section>
-    </section>
-    <script src="js/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.js"></script>
-    <!-- App -->
-    <script src="js/app.js"></script>
-    <script src="js/app.plugin.js"></script>
-    <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
-    <script src="js/charts/sparkline/jquery.sparkline.min.js"></script>
-    <script src="js/charts/flot/jquery.flot.min.js"></script>
-    <script src="js/charts/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/charts/flot/jquery.flot.resize.js"></script>
-    <script src="js/charts/flot/jquery.flot.grow.js"></script>
-    <script src="js/charts/flot/demo.js"></script>
+    </div>
 
-    <script src="js/calendar/bootstrap_calendar.js"></script>
-    <script src="js/calendar/demo.js"></script>
+    <div class="col-sm-6">
+        <section class="panel panel-default">
+            <header class="panel-heading font-bold">Set Your Date Range</header>
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label>From</label>
+                        <div>
+                            <input type="text" class="combodate form-control" data-format="DD-MM-YYYY" data-template="D  MMM  YYYY" name="datetime" value="21-12-2012">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>To</label>
+                        <div>
+                            <input type="text" class="combodate form-control" data-format="DD-MM-YYYY" data-template="D  MMM  YYYY" name="datetime" value="21-12-2012">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
 
-    <script src="js/sortable/jquery.sortable.js"></script>
-    <!-- datepicker -->
-    <script src="js/datepicker/bootstrap-datepicker.js"></script>
-    <!-- combodate -->
-    <script src="js/libs/moment.min.js"></script>
-    <script src="js/combodate/combodate.js"></script>
-</body>
-</html>
+    <div class="col-sm-12">
+        <section class="panel panel-default">
+            <header class="panel-heading font-bold">Filters</header>
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group col-sm-6">
+                        <label>Filter on</label>
+                        <select name="account" class="form-control m-b">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label>Filter Operator</label>
+                        <select name="account" class="form-control m-b">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label>Filter value</label>
+                        <input type="text" class="form-control" placeholder="" />
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label>Filter Condition</label>
+                        <select name="account" class="form-control m-b">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Add one or more filters</label>
+                        <input type="button" class="form-control" value="Add filter">
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label>Filters</label>
+                        <textarea class="form-control"></textarea>
+                        <small>Filters return a subset of the data retrieved and are optional.</small>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-sm-12">
+        <section class="panel panel-default">
+            <header class="panel-heading font-bold">Sorts</header>
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group col-sm-6">
+                        <label>Sort on</label>
+                        <select name="account" class="form-control m-b">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label>Sort Direction</label>
+                        <select name="account" class="form-control m-b">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Add one or more sorts</label>
+                        <input type="button" class="form-control" value="Add sort">
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label>Sort</label>
+                        <textarea class="form-control"></textarea>
+                        <small>The order and direction to retrieve the results and are optional.</small>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#note-list").show();
+    });
+</script>

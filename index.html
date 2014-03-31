@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="app">
+<html lang="en" class="app" ng-app="conversionomicsApp">
 <head>
     <meta charset="utf-8" />
     <title>Conversionomics</title>
@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link rel="stylesheet" href="js/calendar/bootstrap_calendar.css" type="text/css" />
     <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/module.js"></script>
     <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
     <script src="js/ie/respond.min.js"></script>
@@ -24,7 +28,7 @@
                 <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
                     <i class="fa fa-bars"></i>
                 </a>
-                <a href="index.html" class="navbar-brand">Conversionomics</a>
+                <a href="#/dashboard" class="navbar-brand">Conversionomics</a>
                 <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
                     <i class="fa fa-cog"></i>
                 </a>
@@ -69,28 +73,60 @@
                 <aside class="bg-dark lter aside-md hidden-print" id="nav">
                     <section class="vbox">
                         <header class="header bg-primary lter text-center clearfix">
-                            <div class="btn-group" onclick="window.location='clients.html'">
-                                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New client"><i class="fa fa-plus"></i></button>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-mail-reply"></i></button>
                                 <div class="btn-group hidden-nav-xs">
                                     <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
-                                        Add new client
+                                        Switch Client
+                                    <span class="caret"></span>
                                     </button>
+                                    <ul class="dropdown-menu text-left">
+                                        <li><a href="#">Grant's New Client</a></li>
+                                        <li><a href="#">Test client</a></li>
+                                        <li><a href="#">test</a></li>
+                                        <li><a href="#">Other new client</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </header>
                         <section class="w-f scrollable">
                             <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
+
                                 <!-- nav -->
                                 <nav class="nav-primary hidden-xs">
-                                    <ul class="nav">
-                                        <!-- <li class="active">
-                                            <a href="index.html" class="active">
+                                    <ul id="queriesMenu" class="nav">
+                                        <li>
+                                            <a href="#/google_analytics" class="active">
                                                 <i class="fa fa-bar-chart-o icon">
                                                     <b class="bg-danger"></b>
                                                 </i>
-                                                <span>Dashboard</span>
+                                                <span>Google Analytics</span>
                                             </a>
-                                        </li>-->
+                                        </li>
+                                        <li>
+                                            <a href="#/google_adwords">
+                                                <i class="fa fa-user-md icon">
+                                                    <b class="bg-warning"></b>
+                                                </i>
+                                                <span>Google Adwords</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#/bing">
+                                                <i class="fa fa-flash icon">
+                                                    <b class="bg-success"></b>
+                                                </i>
+                                                <span>Bing</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#/queries">
+                                                <i class="fa fa-flash icon">
+                                                    <b class="bg-info"></b>
+                                                </i>
+                                                <span>Query Exports</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                                 <!-- / nav -->
@@ -98,166 +134,64 @@
                         </section>
 
                         <footer class="footer lt hidden-xs b-t b-dark">
-
                             <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
                                 <i class="fa fa-angle-left text"></i>
                                 <i class="fa fa-angle-right text-active"></i>
                             </a>
-
                         </footer>
+                    </section>
+                </aside>
+                <!-- /.aside -->
+                <!--Aside for tne queries-->
+                <aside class="aside-xl b-l b-r" id="note-list">
+                    <section class="vbox flex">
+                        <header class="header clearfix">
+                            <span class="pull-right m-t">
+                                <button class="btn btn-dark btn-sm btn-icon" id="new-note" data-toggle="tooltip" data-placement="right" title="" data-original-title="New query"><i class="fa fa-plus"></i></button>
+                            </span>
+                            <p class="h3">Queries</p>
+                            <div class="input-group m-t-sm m-b-sm">
+                                <span class="input-group-addon input-sm"><i class="fa fa-search"></i></span>
+                                <input type="text" class="form-control input-sm" id="search-note" placeholder="search">
+                            </div>
+                        </header>
+                        <section>
+                            <section>
+                                <section>
+                                    <div class="padder">
+                                        <!-- note list -->
+                                        <ol id="queryList">
+                                            <li>
+                                                <a href="/query_builder/google_adwords/4">Cloned query</a>
+                                            </li>
+                                            <li>
+                                                <a href="/query_builder/bing_adcenter/5">Second clone</a>
+                                            </li>
+                                            <li>
+                                                <a href="/query_builder/google_analytics/6">Cloned Analytics</a>
+                                            </li>
+                                            <li>
+                                                <a href="/query_builder/bing_adcenter/3">Bing Test Query</a>
+                                            </li>
+                                            <li>
+                                                <a href="/query_builder/google_adwords/1">Gran'ts new query modified</a>
+                                            </li>
+                                        </ol>
+
+
+                                        <!-- note list -->
+                                        <p class="text-center">&nbsp;</p>
+                                    </div>
+                                </section>
+                            </section>
+                        </section>
                     </section>
                 </aside>
                 <!-- /.aside -->
                 <section id="content">
                     <section class="vbox">
                         <section class="scrollable padder">
-                            <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-                                <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
-                                <li class="active">Dashboard</li>
-                            </ul>
-                            <div class="m-b-md">
-                                <h3 class="m-b-none">Dashboard</h3>
-                                <small>Click a client to begin operations</small>
-                            </div>
-
-                            <div class="row">
-                                <section class="panel panel-default">
-                                    <div class="row wrapper">
-                                        <div class="col-sm-5 m-b-xs">
-                                            <select class="input-sm form-control input-s-sm inline v-middle">
-                                                <option value="0">Bulk action</option>
-                                                <option value="1">Delete selected</option>
-                                                <option value="2">Bulk edit</option>
-                                                <option value="3">Export</option>
-                                            </select>
-                                            <button class="btn btn-sm btn-default">Apply</button>
-                                        </div>
-                                        <div class="col-sm-4 m-b-xs">
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="input-group">
-                                                <input type="text" class="input-sm form-control" placeholder="Search">
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-sm btn-default" type="button">Go!</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped b-t b-light">
-                                            <thead>
-                                                <tr>
-                                                    <th class="th-sortable" data-toggle="class">Client name
-                         
-                                                        <span class="th-sort">
-                                                            <i class="fa fa-sort-down text"></i>
-                                                            <i class="fa fa-sort-up text-active"></i>
-                                                            <i class="fa fa-sort"></i>
-                                                        </span>
-                                                    </th>
-                                                    <th>Queries</th>
-                                                    <th>Export queries</th>
-                                                    <th width="30"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr style="cursor: pointer;" onclick="window.location='clients.html'">
-                                                    <td>Grant's New Client</td>
-                                                    <td>
-                                                        <ol>
-                                                            <li>
-                                                                <a href="/query_builder/google_adwords/7">Adwords Spend KPI</a>
-                                                            </li>
-                                                        </ol>
-                                                    </td>
-                                                    <td></td>
-                                                    <td>
-                                                        <a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr style="cursor: pointer;" onclick="window.location='clients.html'">
-                                                    <td>Test client</td>
-                                                    <td>
-                                                        <ol>
-                                                            <li>
-                                                                <a href="/query_builder/google_adwords/4">Cloned query</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/query_builder/bing_adcenter/5">Second clone</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/query_builder/google_analytics/6">Cloned Analytics</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/query_builder/bing_adcenter/3">Bing Test Query</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/query_builder/google_adwords/1">Gran'ts new query modified</a>
-                                                            </li>
-                                                        </ol>
-                                                    </td>
-                                                    <td></td>
-                                                    <td>
-                                                        <a href="#" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr style="cursor: pointer;" onclick="window.location='clients.html'">
-                                                    <td>test</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>
-                                                        <a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr style="cursor: pointer;" onclick="window.location='clients.html'">
-                                                    <td>Other new client</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>
-                                                        <a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-                                                    </td>
-                                                </tr>
-
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <footer class="panel-footer">
-                                        <div class="row">
-                                            <div class="col-sm-4 hidden-xs">
-                                            </div>
-                                            <div class="col-sm-4 text-center">
-                                                <small class="text-muted inline m-t-sm m-b-sm">showing 4 of 4 items</small>
-                                            </div>
-                                            <div class="col-sm-4 text-right text-center-xs">
-                                                <ul class="pagination pagination-sm m-t-none m-b-none">
-                                                    <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                                                    <li><a href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">5</a></li>
-                                                    <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </footer>
-                                </section>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8">
-                                </div>
-                                <div class="col-md-4">
-                                    <section class="panel b-light" style="visibility: hidden">
-
-                                        <div id="calendar" class="bg-primary m-l-n-xxs m-r-n-xxs" style="visibility: hidden"></div>
-
-                                    </section>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
+                            <div ng-view></div>
                         </section>
                     </section>
                     <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
@@ -268,7 +202,6 @@
             </section>
         </section>
     </section>
-    <script src="js/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="js/bootstrap.js"></script>
     <!-- App -->
@@ -287,6 +220,19 @@
     <script src="js/calendar/demo.js"></script>
 
     <script src="js/sortable/jquery.sortable.js"></script>
+
+
+    <!-- Bootstrap -->
+
+    <!-- datepicker -->
+    <script src="js/datepicker/bootstrap-datepicker.js"></script>
+    <!-- combodate -->
+    <script src="js/libs/moment.min.js"></script>
+    <script src="js/combodate/combodate.js"></script>
+
+
+    <div id="calendar" class="bg-primary m-l-n-xxs m-r-n-xxs" style="visibility: hidden"></div>
+
 
 </body>
 </html>

@@ -1,0 +1,144 @@
+<div ng-controller="dashboardController">
+    <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+        <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
+        <li class="active">Dashboard</li>
+        <div>
+    </ul>
+    <div class="m-b-md">
+        <h3 class="m-b-none">{{title}}</h3>
+        <small>Click a client to begin operations</small>
+    </div>
+
+    <div class="row">
+        <section class="panel panel-default">
+            <div class="row wrapper">
+                <div class="col-sm-5 m-b-xs">
+                    <select class="input-sm form-control input-s-sm inline v-middle">
+                        <option value="0">Bulk action</option>
+                        <option value="1">Delete selected</option>
+                        <option value="2">Bulk edit</option>
+                        <option value="3">Export</option>
+                    </select>
+                    <button class="btn btn-sm btn-default">Apply</button>
+                </div>
+                <div class="col-sm-4 m-b-xs">
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <input type="text" class="input-sm form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-sm btn-default" type="button">Go!</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped b-t b-light">
+                    <thead>
+                        <tr>
+                            <th class="th-sortable" data-toggle="class">Client name
+                         
+                                                        <span class="th-sort">
+                                                            <i class="fa fa-sort-down text"></i>
+                                                            <i class="fa fa-sort-up text-active"></i>
+                                                            <i class="fa fa-sort"></i>
+                                                        </span>
+                            </th>
+                            <th>Queries</th>
+                            <th>Export queries</th>
+                            <th width="30"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="cursor: pointer;" onclick="window.location='#/clients'">
+                            <td>Grant's New Client</td>
+                            <td>
+                                <ol>
+                                    <li>
+                                        <a href="#">Adwords Spend KPI</a>
+                                    </li>
+                                </ol>
+                            </td>
+                            <td></td>
+                            <td>
+                                <a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                            </td>
+                        </tr>
+                        <tr style="cursor: pointer;"  onclick="window.location='#/clients'">
+                            <td>Test client</td>
+                            <td>
+                                <ol>
+                                    <li>
+                                        <a href="#">Cloned query</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Second clone</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Cloned Analytics</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bing Test Query</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Gran'ts new query modified</a>
+                                    </li>
+                                </ol>
+                            </td>
+                            <td></td>
+                            <td>
+                                <a href="#" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                            </td>
+                        </tr>
+                        <tr style="cursor: pointer;" onclick="window.location='#/clients'">
+                            <td>test</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                            </td>
+                        </tr>
+                        <tr style="cursor: pointer;" onclick="window.location='#/clients'">
+                            <td>Other new client</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+            <footer class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-4 hidden-xs">
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <small class="text-muted inline m-t-sm m-b-sm">showing 4 of 4 items</small>
+                    </div>
+                    <div class="col-sm-4 text-right text-center-xs">
+                        <ul class="pagination pagination-sm m-t-none m-b-none">
+                            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </div>
+
+</div>
+<script>
+    $(function () {
+        $("#note-list").hide();
+        $("#queriesMenu").children("li").removeClass("active");
+    });
+</script>
