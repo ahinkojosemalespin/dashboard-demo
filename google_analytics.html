@@ -154,5 +154,10 @@
         $("#note-list").show();
         $("#queriesMenu").show();
         $('.datepicker-input').datepicker();
+        //Adding new queries to the list
+        $("#queryList").empty();
+        $("#queryList").append("<li><a >New analytics query</a></li>")
+        $("#queryList").append("<li><a >Analytics query 2</a></li>")
+        $("#queryList").append("<li><a >Google query test</a></li>")
     });
 </script>

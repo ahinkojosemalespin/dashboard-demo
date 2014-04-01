@@ -104,11 +104,10 @@
                                         Switch Client
                                     <span class="caret"></span>
                                     </button>
-                                    <ul class="dropdown-menu text-left">
-                                        <li><a href="#">Grant's New Client</a></li>
-                                        <li><a href="#">Test client</a></li>
-                                        <li><a href="#">test</a></li>
-                                        <li><a href="#">Other new client</a></li>
+                                    <ul id="clientList" class="dropdown-menu text-left">
+                                        <li><a href="#/clients">Grant's New Client</a></li>
+                                        <li><a href="#/clients">Test client</a></li>
+                                        <li><a href="#/clients">test</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -137,7 +136,7 @@
                                         </li>
                                         <li>
                                             <a href="#/bing">
-                                                <i class="fa fa-flash icon">
+                                                <i class="fa fa-bold icon">
                                                     <b class="bg-success"></b>
                                                 </i>
                                                 <span>Bing</span>
@@ -151,6 +150,14 @@
                                                 <span>Query Exports</span>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="#/clients">
+                                                <i class="fa fa-male icon">
+                                                    <b class="bg-info"></b>
+                                                </i>
+                                                <span>Client Settings</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                                 <!-- / nav -->
@@ -158,10 +165,10 @@
                         </section>
 
                         <footer class="footer lt hidden-xs b-t b-dark">
-                            <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
+                         <!--   <a href="" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
                                 <i class="fa fa-angle-left text"></i>
                                 <i class="fa fa-angle-right text-active"></i>
-                            </a>
+                            </a>-->
                         </footer>
                     </section>
                 </aside>
@@ -234,5 +241,13 @@
         $("#queryList").on("click", "li", function () {
             $("#queryName").text($(this).text());
         });
+
+        $("#clientList").on("click", "li", function () {
+            $("#clientName").text($(this).children("a").text());
+        });
+
+        $(document).on("click", "#clientTable tbody tr", function () {
+            $("#clientName").text($(this).children("td").eq(0).text());
+        })
     })
 </script>
