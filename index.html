@@ -20,8 +20,27 @@
     <script src="js/ie/respond.min.js"></script>
     <script src="js/ie/excanvas.js"></script>
   <![endif]-->
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.js"></script>
+    <!-- App -->
+    <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
+    <script src="js/charts/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="js/charts/flot/jquery.flot.grow.js"></script>
+    <script src="js/charts/flot/demo.js"></script>
+    <script src="js/calendar/bootstrap_calendar.js"></script>
+    <script src="js/calendar/demo.js"></script>
+    <script src="js/sortable/jquery.sortable.js"></script>
+    <script src="js/datepicker/bootstrap-datepicker.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/app.plugin.js"></script>
+
 </head>
-<body>
+<body ng-controller="conversionomicsController">
     <section class="vbox">
         <header class="bg-dark dk header navbar navbar-fixed-top-xs">
             <div class="navbar-header aside-md">
@@ -34,11 +53,16 @@
                 </a>
             </div>
             <ul class="nav navbar-nav hidden-xs">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle dker" data-toggle="dropdown">
+                        <span id="clientName" class="font-bold">Grant's New Client</span>
+                    </a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a style="cursor: pointer" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="thumb-sm avatar pull-left">
                             <img src="images/avatar_default.jpg">
                         </span>
@@ -74,7 +98,7 @@
                     <section class="vbox">
                         <header class="header bg-primary lter text-center clearfix">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-mail-reply"></i></button>
+                                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-plus"></i></button>
                                 <div class="btn-group hidden-nav-xs">
                                     <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
                                         Switch Client
@@ -162,19 +186,19 @@
                                         <!-- note list -->
                                         <ol id="queryList">
                                             <li>
-                                                <a href="/query_builder/google_adwords/4">Cloned query</a>
+                                                <a href="">Cloned query</a>
                                             </li>
                                             <li>
-                                                <a href="/query_builder/bing_adcenter/5">Second clone</a>
+                                                <a href="">Second clone</a>
                                             </li>
                                             <li>
-                                                <a href="/query_builder/google_analytics/6">Cloned Analytics</a>
+                                                <a href="">Cloned Analytics</a>
                                             </li>
                                             <li>
-                                                <a href="/query_builder/bing_adcenter/3">Bing Test Query</a>
+                                                <a href="">Bing Test Query</a>
                                             </li>
                                             <li>
-                                                <a href="/query_builder/google_adwords/1">Gran'ts new query modified</a>
+                                                <a href="">Gran'ts new query modified</a>
                                             </li>
                                         </ol>
 
@@ -202,37 +226,13 @@
             </section>
         </section>
     </section>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.js"></script>
-    <!-- App -->
-    <script src="js/app.js"></script>
-    <script src="js/app.plugin.js"></script>
-    <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
-    <script src="js/charts/sparkline/jquery.sparkline.min.js"></script>
-    <script src="js/charts/flot/jquery.flot.min.js"></script>
-    <script src="js/charts/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/charts/flot/jquery.flot.resize.js"></script>
-    <script src="js/charts/flot/jquery.flot.grow.js"></script>
-    <script src="js/charts/flot/demo.js"></script>
-
-    <script src="js/calendar/bootstrap_calendar.js"></script>
-    <script src="js/calendar/demo.js"></script>
-
-    <script src="js/sortable/jquery.sortable.js"></script>
-
-
-    <!-- Bootstrap -->
-
-    <!-- datepicker -->
-    <script src="js/datepicker/bootstrap-datepicker.js"></script>
-    <!-- combodate -->
-    <script src="js/libs/moment.min.js"></script>
-    <script src="js/combodate/combodate.js"></script>
-
-
     <div id="calendar" class="bg-primary m-l-n-xxs m-r-n-xxs" style="visibility: hidden"></div>
-
-
 </body>
 </html>
+<script>
+    $(function () {
+        $("#queryList").on("click", "li", function () {
+            $("#queryName").text($(this).text());
+        });
+    })
+</script>

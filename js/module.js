@@ -8,27 +8,27 @@ conversionomicsApp.config(['$routeProvider',
       $routeProvider.
         when('/dashboard', {
             templateUrl: 'dashboard.html',
-            controller: 'dashboardController'
+            controller: 'conversionomicsController'
         }).
         when('/clients', {
              templateUrl: 'clients.html',
-             controller: 'PhoneDetailCtrl'
+             controller: 'conversionomicsController'
         }).
         when('/google_analytics', {
              templateUrl: 'google_analytics.html',
-             controller: 'PhoneDetailCtrl'
+             controller: 'conversionomicsController'
         }).
         when('/google_adwords', {
             templateUrl: 'google_adwords.html',
-            controller: 'PhoneDetailCtrl'
+            controller: 'conversionomicsController'
         }).
         when('/bing', {
             templateUrl: 'bing.html',
-            controller: 'PhoneDetailCtrl'
+            controller: 'conversionomicsController'
         }).
         when('/queries', {
             templateUrl: 'queries.html',
-            controller: 'PhoneDetailCtrl'
+            controller: 'conversionomicsController'
         }).
         otherwise({
             redirectTo: '/dashboard'
@@ -37,7 +37,7 @@ conversionomicsApp.config(['$routeProvider',
 
 var conversionomicsControllers = angular.module('conversionomicsControllers', []);
 
-conversionomicsControllers.controller('dashboardController', ['$scope', '$http',
-  function ($scope, $http) {
-      $scope.title = "Dashboard"
+conversionomicsControllers.controller('conversionomicsController', ['$scope', '$http',
+  function ($scope, $http, conversionomicsService) {
+     
   }]);
