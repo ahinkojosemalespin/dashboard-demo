@@ -38,6 +38,25 @@ conversionomicsApp.config(['$routeProvider',
 var conversionomicsControllers = angular.module('conversionomicsControllers', []);
 
 conversionomicsControllers.controller('conversionomicsController', ['$scope', '$http',
-  function ($scope, $http, conversionomicsService) {
-     
+  function ($scope, $http) {
+      $scope.selectedName = "s";
+
+      $scope.hello = function (name) {
+          alert('Hello ' + (name || 'world') + '!');
+      }
+      $scope.setSelectedName = function (name) {
+          alert('Hello ' + name);
+          $scope.selectedName = name;
+      }
+      $scope.variable = "algo";
+  }]);
+
+
+
+conversionomicsControllers.controller('pruebaController', ['$scope', '$http',
+  function ($scope, $http) {
+      $scope.hello = function (name) {
+          alert('Hello ' + (name || 'world') + '!');
+      }
+      $scope.variable = "dasdsadasdas";
   }]);

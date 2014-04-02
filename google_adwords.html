@@ -1,111 +1,114 @@
-<ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-    <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
-    <li>Client</li>
-    <li class="active">Google Adwords</li>
-</ul>
-<div class="m-b-md">
-    <h3 id="queryName" class="m-b-none">Cloned query</h3>
-    <small></small>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <section class="panel panel-default">
-            <header class="panel-heading font-bold">Select a Google Account</header>
-            <div class="panel-body">
-                <form role="form">
-                    <div class="form-group col-sm-4">
-                        <label>Select Provider</label>
-                        <select name="account" class="form-control m-b">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label>Select Account</label>
-                        <select name="account" class="form-control m-b">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label>Report Type</label>
-                        <select name="account" class="form-control m-b">
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-        </section>
+<div ng-controller="pruebaController">
+    <button ng-click="hello('Elmo')">{{variable}}</button>
+    <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+        <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
+        <li>Client</li>
+        <li class="active">Google Adwords</li>
+    </ul>
+    <div class="m-b-md">
+        <h3 id="queryName" class="m-b-none">Cloned query</h3>
+        <small></small>
     </div>
 
-    <div class="col-sm-6">
-        <section class="panel panel-default">
-            <header class="panel-heading font-bold">Set Your Search Criteria</header>
-            <div class="panel-body">
-                <form role="form">
-                    <div class="form-group">
-                        <label>Select Metrics</label>
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label>Select Segments</label>
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label>Select Attributes</label>
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                </form>
-            </div>
-        </section>
-    </div>
-
-    <div class="col-sm-6">
-        <section class="panel panel-default">
-            <header class="panel-heading font-bold">Set Your Date Range</header>
-            <div class="panel-body">
-                <form role="form">
-                    <div class="form-group">
-                        <label>From</label>
-                        <div>
-                            <input class="input-sm input-s datepicker-input form-control" size="16" type="text" value="12-02-2013" data-date-format="dd-mm-yyyy">
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel panel-default">
+                <header class="panel-heading font-bold">Select a Google Account</header>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group col-sm-4">
+                            <label>Select Provider</label>
+                            <select name="account" class="form-control m-b">
+                                <option>option 1</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label>To</label>
-                        <div>
-                            <input class="input-sm input-s datepicker-input form-control" size="16" type="text" value="12-02-2013" data-date-format="dd-mm-yyyy">
+                        <div class="form-group col-sm-4">
+                            <label>Select Account</label>
+                            <select name="account" class="form-control m-b">
+                                <option>option 1</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                            </select>
                         </div>
-                    </div>
-                </form>
-            </div>
-        </section>
+                        <div class="form-group col-sm-4">
+                            <label>Report Type</label>
+                            <select name="account" class="form-control m-b">
+                                <option>option 1</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                                <option>option 4</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-sm-6">
+            <section class="panel panel-default">
+                <header class="panel-heading font-bold">Set Your Search Criteria</header>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label>Select Metrics</label>
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Select Segments</label>
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Select Attributes</label>
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-sm-6">
+            <section class="panel panel-default">
+                <header class="panel-heading font-bold">Set Your Date Range</header>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label>From</label>
+                            <div>
+                                <input class="input-sm input-s datepicker-input form-control" size="16" type="text" value="12-02-2013" data-date-format="dd-mm-yyyy">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>To</label>
+                            <div>
+                                <input class="input-sm input-s datepicker-input form-control" size="16" type="text" value="12-02-2013" data-date-format="dd-mm-yyyy">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
     </div>
-</div>
-<div class="form-actions" style="padding-bottom:20px">
-    <button class="btn btn-success" ng-click="save('save')">
-        Save Query
-    </button>
-    <button class="btn btn-info" ng-click="save('clone')">
-        Save Query As
-    </button>
-    <button class="btn btn-danger" ng-click="destroy()">
-        Remove Query
-    </button>
-    <button class="btn" ng-click="search(true)">
-        Export to CSV
-    </button>
-    <button class="btn btn-warning" ng-click="stopSearch()" ng-disabled="!requestCanceler" disabled="disabled">
-        Stop Query
-    </button>
+    <div class="form-actions" style="padding-bottom: 20px">
+        <button class="btn btn-success" ng-click="save('save')">
+            Save Query
+        </button>
+        <button class="btn btn-info" ng-click="save('clone')">
+            Save Query As
+        </button>
+        <button class="btn btn-danger" ng-click="destroy()">
+            Remove Query
+        </button>
+        <button class="btn" ng-click="search(true)">
+            Export to CSV
+        </button>
+        <button class="btn btn-warning" ng-click="stopSearch()" ng-disabled="!requestCanceler" disabled="disabled">
+            Stop Query
+        </button>
+    </div>
 </div>
 <script>
     $(function () {
