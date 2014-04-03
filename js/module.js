@@ -3,16 +3,17 @@
   'conversionomicsControllers'
 ]);
 
+
 conversionomicsApp.config(['$routeProvider',
   function ($routeProvider) {
       $routeProvider.
         when('/dashboard', {
             templateUrl: 'dashboard.html',
-            controller: 'conversionomicsController'
+            controller: ''
         }).
         when('/clients', {
              templateUrl: 'clients.html',
-             controller: 'conversionomicsController'
+             controller: 'clientController'
         }).
         when('/google_analytics', {
              templateUrl: 'google_analytics.html',
@@ -35,28 +36,28 @@ conversionomicsApp.config(['$routeProvider',
         });
   }]);
 
+conversionomicsApp.factory('mySharedService', function ($rootScope) {
+    var sharedService = {};
+
+    sharedService.message = 'das';
+    sharedService.prepForBoradcast = function (msg) {
+        this.message = msg;
+        this.broadcastItem();
+    };
+
+    sharedService.broadcastItem = function () {
+        $rootScope.$broadcast('handleBroadcast');
+    };
+
+    return sharedService;
+});
+
+
 var conversionomicsControllers = angular.module('conversionomicsControllers', []);
 
-conversionomicsControllers.controller('conversionomicsController', ['$scope', '$http',
-  function ($scope, $http) {
-      $scope.selectedName = "s";
 
-      $scope.hello = function (name) {
-          alert('Hello ' + (name || 'world') + '!');
-      }
-      $scope.setSelectedName = function (name) {
-          alert('Hello ' + name);
-          $scope.selectedName = name;
-      }
-      $scope.variable = "algo";
-  }]);
+function conversionomicsController($scope, $http, mySharedService) {
 
+};
 
-
-conversionomicsControllers.controller('pruebaController', ['$scope', '$http',
-  function ($scope, $http) {
-      $scope.hello = function (name) {
-          alert('Hello ' + (name || 'world') + '!');
-      }
-      $scope.variable = "dasdsadasdas";
-  }]);
+conversionomicsController.$inject = ['$scope', '$http'];

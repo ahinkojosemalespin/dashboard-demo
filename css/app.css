@@ -7,6 +7,11 @@
     padding: 10px 0px;
 }
 
+#clientTable tbody tr td ul {
+    list-style:none;
+    padding-left:0px;
+}
+
 html {
   background-color: #f7f7f7;
   overflow-x: hidden;

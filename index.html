@@ -6,6 +6,7 @@
     <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link href="css/bootstrap.no-icons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="css/font.css" type="text/css" />
@@ -15,6 +16,8 @@
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="js/module.js"></script>
+    <script src="controllers/dashboardController.js"></script>
+    <script src="controllers/clientController.js"></script>
     <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
     <script src="js/ie/respond.min.js"></script>
@@ -40,7 +43,7 @@
     <script src="js/app.plugin.js"></script>
 
 </head>
-<body ng-controller="conversionomicsController">
+<body ng-controller="dashboardController">
     <section class="vbox">
         <header class="bg-dark dk header navbar navbar-fixed-top-xs">
             <div class="navbar-header aside-md">
@@ -55,7 +58,8 @@
             <ul class="nav navbar-nav hidden-xs">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle dker" data-toggle="dropdown">
-                        <span id="clientName" class="font-bold">Grant's New Client</span>
+                        <span id="Span1" ng-hide="true" class="font-bold">{{selectedId}}</span>
+                        <span id="clientName" class="font-bold">{{selectedName}}</span>
                     </a>
                 </li>
             </ul>
@@ -105,9 +109,7 @@
                                     <span class="caret"></span>
                                     </button>
                                     <ul id="clientList" class="dropdown-menu text-left">
-                                        <li><a href="#/clients">Grant's New Client</a></li>
-                                        <li><a href="#/clients">Test client</a></li>
-                                        <li><a href="#/clients">test</a></li>
+                                        <li ng-repeat="client in clients"><a href="#/clients" ng-model="client.name" ng-click="setSelectedName(client.name)">{{client.name}}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -245,9 +247,5 @@
         $("#clientList").on("click", "li", function () {
             $("#clientName").text($(this).children("a").text());
         });
-
-        $(document).on("click", "#clientTable tbody tr", function () {
-            $("#clientName").text($(this).children("td").eq(0).text());
-        })
     })
 </script>
