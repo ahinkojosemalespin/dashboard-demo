@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="app" ng-app="conversionomicsApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Conversionomics</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link href="css/bootstrap.no-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="js/calendar/bootstrap_calendar.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+
+    <script src="controllers/module.js"></script>
+    <script src="controllers/dashboardController.js"></script>
+    <script src="controllers/clientController.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.js"></script>
+    <!-- App -->
+    <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
+    <script src="js/charts/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="js/charts/flot/jquery.flot.grow.js"></script>
+    <script src="js/charts/flot/demo.js"></script>
+    <script src="js/calendar/bootstrap_calendar.js"></script>
+    <script src="js/calendar/demo.js"></script>
+    <script src="js/sortable/jquery.sortable.js"></script>
+    <script src="js/datepicker/bootstrap-datepicker.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/app.plugin.js"></script>
+
+</head>
+<body ng-controller="dashboardController">
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside-md">
+                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="#/dashboard" class="navbar-brand">Conversionomics</a>
+                <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <li class="dropdown"></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
+            </ul>
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <section id="content">
+                    <section class="vbox">
+                        <section class="scrollable padder">
+
+                            <!--Login form-->
+
+                            <div class="col-sm-5 col-md-offset-4" style="padding-top: 20px">
+                                <form action="index.html" accept-charset="UTF-8" role="form" method="get">
+                                    <legend>Please Login</legend>
+                                    <div class="form-group ">
+                                        <label class="email optional control-label" for="user_email">Email</label>
+                                        <div class="controls">
+                                            <input aria-required="true" autofocus="autofocus" class="string email required input-block-level" id="user_email" maxlength="255" name="user[email]" pattern=".*" required="required" size="55" type="email" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="password optional control-label" for="user_password">Password</label>
+                                        <div class="controls">
+                                            <input aria-required="true" class="password required input-block-level" id="user_password" maxlength="128" name="user[password]" required="required" size="55" type="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <label class="checkbox">
+                                                <input name="user[remember_me]" type="hidden" value="0"><input class="boolean optional" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1">
+                                                Remember Me
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <input class="button btn btn-primary" name="commit" type="submit" value="Sign in">
+                                        <a class="btn btn-info" href="/users/password/new">Forgot your password?</a><br>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </section>
+                    </section>
+                    <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+                </section>
+                <aside class="bg-light lter b-l aside-md hide" id="notes">
+                    <div class="wrapper">Notification</div>
+                </aside>
+            </section>
+        </section>
+    </section>
+    <div id="calendar" class="bg-primary m-l-n-xxs m-r-n-xxs" style="visibility: hidden"></div>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#queryList").on("click", "li", function () {
+            $("#queryName").text($(this).text());
+        });
+
+        $("#clientList").on("click", "li", function () {
+            $("#clientName").text($(this).children("a").text());
+        });
+    })
+</script>

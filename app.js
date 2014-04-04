@@ -30,7 +30,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function (req, res) {
-    res.sendfile(__dirname + '/index.html');
+    res.sendfile(__dirname + '/login.html');
 });
 
 http.createServer(app).listen(app.get('port'), function () {

@@ -1,0 +1,6 @@
+{
+    "id": "1", 
+    "name": "Jose Malespin", 
+    "fiscalWeekStartDate": [{"queryName": "prueba1"},{"queryName": "prueba1"}],
+	"exportQueries": [{"queryName": "prueba1"},{"queryName": "prueba1"}]
+}

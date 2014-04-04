@@ -15,9 +15,11 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
-    <script src="js/module.js"></script>
+
+    <script src="controllers/module.js"></script>
     <script src="controllers/dashboardController.js"></script>
     <script src="controllers/clientController.js"></script>
+    <script src="controllers/googleanalyticsController.js"></script>
     <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
     <script src="js/ie/respond.min.js"></script>
@@ -75,10 +77,10 @@
                     <ul class="dropdown-menu animated fadeInRight">
                         <span class="arrow top"></span>
                         <li>
-                            <a href="#">Manague Users</a>
+                            <a href="#/users">Manague Users</a>
                         </li>
                         <li>
-                            <a href="#">Manage Providers</a>
+                            <a href="#/providers">Manage Providers</a>
                         </li>
                         <li>
                             <a href="#">Manage Clients</a>
@@ -89,7 +91,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">Logout</a>
+                            <a href="login.html">Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -242,10 +244,6 @@
     $(function () {
         $("#queryList").on("click", "li", function () {
             $("#queryName").text($(this).text());
-        });
-
-        $("#clientList").on("click", "li", function () {
-            $("#clientName").text($(this).children("a").text());
         });
     })
 </script>

@@ -12,12 +12,12 @@ conversionomicsApp.config(['$routeProvider',
             controller: ''
         }).
         when('/clients', {
-             templateUrl: 'clients.html',
-             controller: 'clientController'
+            templateUrl: 'clients.html',
+            controller: 'clientController'
         }).
         when('/google_analytics', {
-             templateUrl: 'google_analytics.html',
-             controller: 'conversionomicsController'
+            templateUrl: 'google_analytics.html',
+            controller: 'googleanalyticsController'
         }).
         when('/google_adwords', {
             templateUrl: 'google_adwords.html',
@@ -31,6 +31,14 @@ conversionomicsApp.config(['$routeProvider',
             templateUrl: 'queries.html',
             controller: 'conversionomicsController'
         }).
+                  when('/users', {
+                      templateUrl: 'users.html',
+                      controller: 'conversionomicsController'
+                  }).
+                  when('/providers', {
+                      templateUrl: 'providers.html',
+                      controller: 'conversionomicsController'
+                  }).
         otherwise({
             redirectTo: '/dashboard'
         });
